@@ -7,16 +7,10 @@
  */
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
-    /* Check if the tree and function pointer are not NULL */
-    if (tree != NULL && func != NULL)
-    {
-        /* Traverse left subtree */
-        binary_tree_postorder(tree->left, func);
-
-        /* Traverse right subtree */
-        binary_tree_postorder(tree->right, func);
-
-        /* Call function for the current node */
-        func(tree->n);
-    }
+	if (tree && func)
+	{
+		binary_tree_postorder(tree->left, func);
+		binary_tree_postorder(tree->right, func);
+		func(tree->n);
+	}
 }
